@@ -3,18 +3,66 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Confetti-Labs.com</title>
+    <title>Confetti Labs — Makers of Brisa, the AI receptionist for hotels</title>
+    <meta name="description" content="Confetti Labs builds AI products for hospitality. Our first product is Brisa, the thoughtful text and voice AI receptionist that gives every hotel guest an immediate, personal welcome.">
+    <link rel="canonical" href="https://confetti-labs.com/">
+    <meta name="theme-color" content="#0e1512">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://confetti-labs.com/">
+    <meta property="og:site_name" content="Confetti Labs">
+    <meta property="og:title" content="Confetti Labs — Makers of Brisa, the AI receptionist for hotels">
+    <meta property="og:description" content="Confetti Labs builds AI products for hospitality. Our first product is Brisa, the text and voice AI receptionist for hotels.">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Confetti Labs — Makers of Brisa, the AI receptionist for hotels">
+    <meta name="twitter:description" content="Confetti Labs builds AI products for hospitality. Our first product is Brisa, the text and voice AI receptionist for hotels.">
     <style>
+      /* Brisa palette (holabrisa.com), inverted to dark tones */
+      :root {
+        --ink: #17211c;
+        --paper: #f4f0e6;
+        --acid: #d8ff5f;
+        --sea: #1f7167;
+
+        --bg: #0e1512;
+        --text: var(--paper);
+        --text-muted: #9aa396;
+        --text-muted: color-mix(in srgb, var(--paper) 58%, transparent);
+      }
+
       * {
         box-sizing: border-box;
       }
 
       body {
+        min-height: 100vh;
+        min-height: 100dvh;
         margin: 0;
-        background: #000;
-        color: #fff;
+        background:
+          radial-gradient(circle at 15% 5%, rgb(216 255 95 / 9%), transparent 28rem),
+          radial-gradient(circle at 85% 95%, rgb(31 113 103 / 14%), transparent 32rem),
+          var(--bg);
+        color: var(--text);
         font-family: "Avenir Next", Avenir, "Helvetica Neue", Helvetica,
           sans-serif;
+        font-feature-settings: "ss01", "kern";
+      }
+
+      /* Brisa's film-grain overlay, dialled back for a dark ground */
+      body::before {
+        position: fixed;
+        z-index: 100;
+        inset: 0;
+        pointer-events: none;
+        content: "";
+        opacity: 0.09;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.15'/%3E%3C/svg%3E");
+      }
+
+      ::selection {
+        background: var(--acid);
+        color: var(--ink);
       }
 
       main {
@@ -33,11 +81,69 @@
         letter-spacing: -0.04em;
         line-height: 1;
       }
+
+      .product {
+        margin-top: 3rem;
+
+        @media (max-width: 48rem) {
+          padding: 0 2rem 0 2rem;
+        }
+        @media (min-width: 48.1rem) {
+          max-width: 48rem
+        }
+      }
+
+      .product-label {
+        margin: 0 0 0.75rem;
+        color: var(--text-muted);
+        font-size: 0.75rem !important;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+      }
+
+      .product h2 {
+        margin: 0 0 0.75rem;
+        font-size: clamp(1.25rem, 4vw, 2rem);
+        font-weight: 600;
+        letter-spacing: -0.02em;
+      }
+
+      .product h2 a {
+        color: inherit;
+        text-decoration-color: var(--acid);
+        text-decoration-thickness: 0.08em;
+        text-underline-offset: 0.2em;
+        transition: color 150ms ease;
+      }
+
+      .product h2 a:hover,
+      .product h2 a:focus-visible {
+        color: var(--acid);
+      }
+
+      .product p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: clamp(0.95rem, 2.5vw, 1.125rem);
+        line-height: 1.6;
+      }
     </style>
   </head>
   <body>
     <main>
-      <h1>Confetti-Labs.com</h1>
+      <div>
+        <h1>Confetti-Labs.com</h1>
+        <section class="product">
+          <p class="product-label">Our first product</p>
+          <h2><a href="https://holabrisa.com">Brisa</a></h2>
+          <p>
+            The thoughtful text and voice AI receptionist that gives every
+            hotel guest an immediate, personal welcome — around the clock, with
+            requests sent straight to the property management system.
+          </p>
+        </section>
+      </div>
     </main>
   </body>
 </html>
